@@ -19,7 +19,7 @@ map.addControl(new mapboxgl.NavigationControl());
 map.on("load", function () {
 
   // laad een extern bestand
-  map.loadImage("airplane-silhouette-115494046411mqduhput3.png", function (error, image) {
+  map.loadImage("Plane-03.png", function (error, image) {
 
       // guard: check voor een laad error
       if (error) throw error;
