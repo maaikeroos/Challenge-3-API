@@ -118,7 +118,7 @@ map2.on('load', function () {
 
 function plotImageOnMap(icon, city) {
   map2.loadImage(
-    'http://openweathermap.org/img/w/' + icon + '.png',
+    'https://openweathermap.org/img/w/' + icon + '.png',
     function (error, image) {
       if (error) throw error;
       map2.addImage("weatherIcon_" + city.name, image);
