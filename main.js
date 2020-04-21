@@ -98,7 +98,7 @@ var openWeatherMapUrlApiKey = 'c8efd72d97019e62517256b5136de175';
 map2.on('load', function () {
   cities.forEach(function(city) {
     //Dit is voor meerdere lat en long coords
-    var request = openWeatherMapUrl + '?' + 'appid=' + openWeatherMapUrlApiKey + '&lon=' + city.coordinates[0] + '&lat=' + city.coordinates[1];
+    var request = openWeatherMapUrl + '?' + 'appid=' + openWeatherMapUrlApiKey + '&units=metric&lon=' + city.coordinates[0] + '&lat=' + city.coordinates[1];
 
     //Hiermee krijg je informatie over het huidige weer van de steden gebasseerd op coords
     fetch(request)
@@ -108,7 +108,7 @@ map2.on('load', function () {
       })
       .then(function(response) {
         //Het weer met het bijbehorende icoon
-        plotImageOnMap(response.weather[0].icon, city)
+        plotImageOnMap(response.weather[0].icon, response.main.temp, city)
       })
       .catch(function (error) {
         console.log('ERROR:', error);
@@ -116,7 +116,7 @@ map2.on('load', function () {
   });
 });
 
-function plotImageOnMap(icon, city) {
+function plotImageOnMap(icon, temperature, city) {
   map2.loadImage(
     'https://openweathermap.org/img/w/' + icon + '.png',
     function (error, image) {
@@ -131,7 +131,11 @@ function plotImageOnMap(icon, city) {
             geometry: {
               type: "Point",
               coordinates: city.coordinates
+            },
+            properties: {
+            temp: temperature
             }
+          }]
           }]
         }
       });
@@ -140,6 +144,10 @@ function plotImageOnMap(icon, city) {
         type: "symbol",
         source: "point_" + city.name,
         layout: {
+          "text-field": "{temp}",
+          "text-size": 10,
+          "text-offset": [3.5, -0.1],
+          "text-font": ['Open Sans Semibold'],
           "icon-image": "weatherIcon_" + city.name,
           "icon-size": 1.4
         }
