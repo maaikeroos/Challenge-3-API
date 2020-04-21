@@ -136,7 +136,6 @@ function plotImageOnMap(icon, temperature, city) {
             temp: temperature
             }
           }]
-          }]
         }
       });
       map2.addLayer({
