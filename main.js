@@ -49,7 +49,7 @@ map.on("load", function () {
         source: "point",
         layout: {
           "icon-image": "airplane",
-          "icon-size": 0.15
+          "icon-size": 0.12
         }
       });
     }
