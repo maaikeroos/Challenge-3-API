@@ -108,7 +108,7 @@ map2.on('load', function () {
       })
       .then(function(response) {
         //Het weer met het bijbehorende icoon
-        plotImageOnMap(response.weather[0].icon, response.main.temp, city)
+        plotImageOnMap(response.weather[0].icon, Math.round(response.main.temp) + "\xB0C", city)
       })
       .catch(function (error) {
         console.log('ERROR:', error);
@@ -146,7 +146,7 @@ function plotImageOnMap(icon, temperature, city) {
           "text-field": "{temp}",
           "text-size": 10,
           "text-offset": [3.5, -0.1],
-          "text-font": ['Roboto'],
+          "text-font": ['Open Sans Semibold'],
           "icon-image": "weatherIcon_" + city.name,
           "icon-size": 1.4
         }
