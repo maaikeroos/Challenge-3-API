@@ -108,7 +108,7 @@ map2.on('load', function () {
       })
       .then(function(response) {
         //Het weer met het bijbehorende icoon
-        plotImageOnMap(response.weather[0].icon, Math.round(response.main.temp) + "\xB0C", city)
+        plotImageOnMap(response.weather[0].icon, Math.round(response.main.temp) + "℃", city)
       })
       .catch(function (error) {
         console.log('ERROR:', error);
