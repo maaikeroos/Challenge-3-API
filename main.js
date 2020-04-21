@@ -146,7 +146,7 @@ function plotImageOnMap(icon, temperature, city) {
           "text-field": "{temp}",
           "text-size": 10,
           "text-offset": [3.5, -0.1],
-          "text-font": ['Open Sans Semibold'],
+          "text-font": ['Roboto'],
           "icon-image": "weatherIcon_" + city.name,
           "icon-size": 1.4
         }
