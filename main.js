@@ -19,7 +19,7 @@ map.addControl(new mapboxgl.NavigationControl());
 map.on("load", function () {
 
   // laad een extern bestand
-  map.loadImage("Plane-03.png", function (error, image) {
+  map.loadImage("b685849ec2444dfadf85e0470742bb60.png", function (error, image) {
 
       // guard: check voor een laad error
       if (error) throw error;
@@ -49,7 +49,7 @@ map.on("load", function () {
         source: "point",
         layout: {
           "icon-image": "airplane",
-          "icon-size": 0.30
+          "icon-size": 0.15
         }
       });
     }
